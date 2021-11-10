@@ -12,7 +12,7 @@ To assist with such decisions, the clinic would like to provide prospective elec
 
 Predictive models were developed using past records of general elective surgery patient encounters at the Cleveland Clinic spanning a 5-year and 9-month period. Each encounter had already been de-identified to protect patient privacy, and the data was divided up into a held-out test set (20% of the records), a training set (80% of the remainder), and a validation set (20% of the remainder). Various models were developed and assessed using 5-fold cross-validation on the training set and then comparing AUROC (Area Under the Receiver Operating Curve) results of each model between the training and validation sets. 
 
-Binary variables in the dataset were one-hot encoded, with one column dropped for Logistic Regression models and no columns dropped for tree-based classification models. Moreover, although medical domain knowledge was not readily available to help with informed feature engineering, non-binary variables were expanded into additional features using common transformations: log (were feasible), exponential, squares, and cubed values.
+Binary variables in the dataset were one-hot encoded, with one column dropped for Logistic Regression models and no columns dropped for tree-based classification models. Moreover, although medical domain knowledge was not readily available to help with informed feature engineering, non-binary variables were expanded into additional features using common transformations: log (where feasible), exponential, squares, and cubed values.
 
 After all models had been developed and tuned, each was retrained on the training+validation sets and evaluted for final performance based on how well it performed on the held-out test set. The performace goals were a Recall (True Positive Rate) of at least 0.95 with a False Positive Rate as small as possible (but no greater than 0.10). The model which most exeeded these performance parameters was designated as the final deliverable model.
 
@@ -61,13 +61,13 @@ The dataset had two target variables:
 
 The target of interest, 30-Day Mortality, was highly-imbalanced: 99.586% zeroes and only 0.414% ones.
 
-(Note that a secondary objective of this project was to also predict the second target, In-Hospital Complication. There did not end up being enough time to thoroughly pursue this objective, but based on early data exploration and preliminary modeling, it appeared to be a more difficult outcome to predict. This may have to do with the inherently random nature of in-hospital complications, whereas mortality may be more clearly indicated in positive cases based on the patient variables contained in the dataset.)
+(Note that a secondary objective of this project was to also predict the other target, In-Hospital Complication. There did not end up being enough time to thoroughly pursue this objective, but based on early data exploration and preliminary modeling, it appeared to be a more difficult outcome to predict. This may have to do with the inherently random nature of in-hospital complications, whereas mortality may be more clearly indicated in positive cases based on the patient variables contained in the dataset.)
 
 ## Algorithms
 
 The primary classification models developed for this project were: 
 
-- Logistic Regressions, using scaled data and elasticnet regularization (tuned on both AUC and separately on log-loss as optimization metrics, resulting in two separate models)
+- Logistic Regressions, using scaled data and elasticnet regularization (tuned on both AUC and separately on log-loss as optimization metrics, resulting in two different models)
 - Random Forest Classifiers, using the unscaled dataset (and hyperparameter tuned on both AUC and log-loss as optimization metrics, resulting in two distinct models)
 - XGBoost Classifiers, using the unscaled dataset (and hyperparameter tuned on both AUC and log-loss optimization metrics, resulting in two separate models)
 - "Soft" Voting Classifier ensembles, using several combinations of the models listed above
@@ -87,5 +87,5 @@ The following tools were used in this project:
 
 ## Communication
 
-In addtition to presenting final Project Slides to the stakeholders, all work (including the slides) will be available on GitHub: https://github.com/georgepappy/Classification
+In addtition to presenting final Project Slides to the stakeholders, all work (including the slides) can be found on GitHub: https://github.com/georgepappy/Classification
 
