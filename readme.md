@@ -87,5 +87,5 @@ The following tools were used in this project:
 
 ## Communication
 
-In addtition to presenting final Project Slides to the stakeholders, all work (including the slides) can be found here: https://github.com/georgepappy/Classification
+In addtition to presenting final Project Slides to the stakeholders, all work (including the slides) can be found here: https://github.com/georgepappy/Classification/tree/main/FINAL_PROJECT
 
